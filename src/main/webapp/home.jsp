@@ -8,11 +8,20 @@
 <html lang="en">
   <head>
       <meta charset="utf-8">
-      <title>Ustore - who are you?</title><link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <title>Ustore - who are you?</title>
 
-      <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-      <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
       <style>
+      a:hover
+      {
+        text-transform: none;
+        text-decoration: none;
+      }
+      html, body {
+    margin: 0;
+    height: 100%;
+}
         .btn3d {
     transition:all .08s linear;
     position:relative;
@@ -55,53 +64,39 @@
 }
       </style>
   </head>
-<body style="background-color:#eee;padding-top: 0;">
+<body style="background:url('${contextPath}/resources/img/background-img.jpg');background-size: auto 100%;background-repeat: no-repeat;background-position: center;background-color:#0E100F;">
+
+<div class="container display-block h-100" >
+
+  		<div class="row align-items-center text-center h-100">
     
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">uStore</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto">
-      <c:choose>
-   <c:when test="${pageContext.request.userPrincipal.name}">
-     <li class="nav-item active">
-        <a class="nav-link" href="/panel">Panel <span class="sr-only">(current)</span></a>
-      </li>
+        <div class="col">
 
-   </c:when> 
-   <c:otherwise>
-     <li class="nav-item active">
-        <a class="nav-link" href="/login">Login <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/registration">Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/">Who i am?</a>
-      </li>
-   </c:otherwise>    <!-- else condition -->
-</c:choose>
-    </ul>
-    <span class="navbar-text">
-    </span>
-  </div>
-</nav>
+        <div class="col-sm-6" style="background-color: rgba(255,255,255,0.2);display:inline-block;border-radius:4px;padding:30px;">
+        <h3 style="color:#fff;">Who are you?</h3>
 
-  	<div style="text-align: center;align-items: center;vertical-align: middle;">
-  
-    <div style="display:inline-block;width:500px;background-color:rgba(255,255,255,0.2);align-items: center;vertical-align: middle;padding:20px;">
-  		<div style="text-align: center;">
-        <h3 style="color:#000;">Who are you?</h3>
         <a href="/login">
-        <button type="button" class="btn btn-warning btn-lg btn3d" style="width: 200px"><img src="https://www.tibiawiki.com.br/images/8/8f/Furious_Orc_Berserker.gif"> Orc</button><br>
+        <button type="button" class="btn btn-warning btn-lg btn3d" style="width: 200px;height: 200px;"><img src="https://www.tibiawiki.com.br/images/8/8f/Furious_Orc_Berserker.gif" alt="Orc" width="32"> <br>Orc</button>
         </a>
-        <a href="/login">
-        <button type="button" class="btn3d btn btn-default btn-lg" style="width: 200px"> Saruman </button>
+
+        <a href="/saruman/login">
+        <button type="button" class="btn3d btn btn-default btn-lg" style="width: 200px;height: 200px;"> 
+          <div style="background:url('${contextPath}/resources/img/saruman.gif'); width: 40px;
+    height: 40px;
+    margin-bottom: -10px;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    display: inline-block;
+  "></div><br> Saruman </button>
         </a>
+
+
+        </div>
+
+        </div>
 
       </div>
-  	</div>
+</div> 
+
   </body>
   </html>

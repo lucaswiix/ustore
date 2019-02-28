@@ -18,8 +18,13 @@
 - [ ] Difference authenticator to saruman
 - [ ] Log out if go to /login if authenticate
 - [ ] Make real the front end ( now like a shit)
-- [ ] Study more about Syntax .JSP
+- [ ] TIMEOUT: Study more about Syntax .JSP
+- [ ] TIMEOUT: Upload frontend to Angular
 
+# Scrum deploy
+
+First application developed in Java, deploy in two days. 
+- real life endpoint 01/03
 
 # História:
   Julho do ano 3018, Saruman armou uma cilada para Gandalf, usando Radagast para atraí-lo a Orthanc. Quando Gandalf vem ao seu encontro, Saruman revela que havia então forjado um anel por si próprio, que não mais era Saruman o Branco, mas sim Saruman de Muitas Cores. Saruman esperava que o segredo do Um Anel permanecesse com ele, ou ao menos se prevenir que Gandalf mesmo o tomasse para si. Então forja para si um exército de lobos e orcs por conta própria afim de tornar-se poderoso. Tomando o controle de parte de Rohan o único poder próximo a Isengard, agora presencia-se o avanço do poder que um istari pode alcançar.<br><br>

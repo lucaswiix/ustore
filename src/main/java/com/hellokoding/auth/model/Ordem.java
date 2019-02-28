@@ -1,6 +1,7 @@
 package com.hellokoding.auth.model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Table(name = "ordem")
@@ -19,16 +24,24 @@ public class Ordem implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotNull
+    @NotEmpty
 	private String message;
 	
 	@Column(name="to_group")
+	@NotNull
+    @NotEmpty
 	private String grupo;
 	
 	@Column(name="to_area")
+	@NotNull
+    @NotEmpty
 	private String area;
 	
-	private boolean isExec;
-
+	@Column(name="created_at")
+	@CreationTimestamp
+	private Date created_at;
+	
 	public Long getId() {
 		return id;
 	}
@@ -61,12 +74,12 @@ public class Ordem implements Serializable{
 		this.area = area;
 	}
 
-	public boolean isExec() {
-		return isExec;
+	public Date getCreated_at() {
+		return created_at;
 	}
 
-	public void setExec(boolean isExec) {
-		this.isExec = isExec;
+	public void setCreated_at(Date created_at) {
+		this.created_at = created_at;
 	}
 	
 	
