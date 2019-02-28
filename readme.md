@@ -14,7 +14,7 @@
 - [x] Can change Region and Group of single orc
 - [x] Can delete Orcs
 - [x] Orcs can see last 20 orders
-- # To learn
+- [ ] Orc can accept or decline order
 - [ ] Difference authenticator to saruman
 - [ ] Log out if go to /login if authenticate
 - [ ] Make real the front end ( now like a shit)
