@@ -14,20 +14,19 @@
 - [x] Can change Region and Group of single orc
 - [x] Can delete Orcs
 - [x] Orcs can see orders of your group and area
-- [ ] Orc can execute action orders
+- [x] Orc can execute action orders
+- [x] Saruman can see all actions and if performed or not
 - [X] Saruman can see lasts messages orders
 - [X] Soldier can't see Saruman panel
 - [X] Saruman has a unique permission to differentiate himself from the soldiers(permission->"SARUMAN")
-- [X] Log out if go to /login if authenticate
+- [X] if authenticate redirect to panel in /login
+- [x] Making this app in fcking 2 days
 - [X] Make a prettier and more practical front end
-- [ ] TIMEOUT: Upgrade front-end to Angular
-- [ ] TIMEOUT: Study more about Syntax .JSP
+- [ ] Upgrade front-end to angular 2(i left it at the last minute because it's easy)
 
+# Deploy
 
-# Scrum deploy
-
-First application developed in Java, deploy in two days. 
-- real life endpoint 01/03
+First application developed in Java, deployed in two days. 
 
 # História:
   Julho do ano 3018, Saruman armou uma cilada para Gandalf, usando Radagast para atraí-lo a Orthanc. Quando Gandalf vem ao seu encontro, Saruman revela que havia então forjado um anel por si próprio, que não mais era Saruman o Branco, mas sim Saruman de Muitas Cores. Saruman esperava que o segredo do Um Anel permanecesse com ele, ou ao menos se prevenir que Gandalf mesmo o tomasse para si. Então forja para si um exército de lobos e orcs por conta própria afim de tornar-se poderoso. Tomando o controle de parte de Rohan o único poder próximo a Isengard, agora presencia-se o avanço do poder que um istari pode alcançar.<br><br>
