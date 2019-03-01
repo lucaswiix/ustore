@@ -1,6 +1,6 @@
-## Ustore Challenge
-
 # VERSÃO FINALIZADA NO BRANCH VERSION-1.0
+---------
+## Ustore Challenge
 
 - Inicio : 26/02/19 18:25
 - Fim : 01/03/19 00
