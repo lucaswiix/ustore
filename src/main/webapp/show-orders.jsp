@@ -168,11 +168,16 @@
      <c:forEach items="${order}" var="order">
           <div class="col-md-3 col-sm-4 col-xs-6 p-2" >
             <div class="card">
+              <div class="card-header">
+                To <b>${order.grupo}</b> in <b>${order.area}</b>
+              </div>
               <div class="card-body">
                 <h6 class="card-subtitle mb-2 text-muted">Saruman says:</h6>
                 <p class="card-text">${order.message}</p>
               </div>
-              <div class="card-footer text-right">${order.created_at}</div>
+              <div class="card-footer text-right">
+              ${order.created_at}
+            </div>
             </div>
           </div>
       </c:forEach>
