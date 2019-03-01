@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.hellokoding.auth.model.Ordem;
 import com.hellokoding.auth.model.User;
+import com.hellokoding.auth.repository.ActionRepository;
 import com.hellokoding.auth.repository.OrdemRepository;
 import com.hellokoding.auth.repository.UserRepository;
 
@@ -20,6 +21,9 @@ public class OrdemController {
 	private UserRepository userRepository;
 	
 	private OrdemRepository repository;
+	
+	@Autowired
+	private ActionRepository actionRepository;
 
 	OrdemController (OrdemRepository ordemRepository) {
 	      this.repository = ordemRepository;
@@ -33,26 +37,29 @@ public class OrdemController {
 	    	{
 	    		User user = userRepository.findByUsername(auth.getName());  
 	    		
-	    		if(user.getPermission() != null)
-	        	{	    			
-	    			if(user.getPermission().equals("SARUMAN")){
-	    				return "redirect:/panel/saruman";
-	    			}else if(!user.getPermission().equals("USER")) {
-	    				user.setPermission("USER");	
-	    				System.out.println("[1] Adicionado permission USER para: "+user.getUsername());
-	    			}	    			
-	    		}else{
-	    			user.setPermission("USER");
-	    			System.out.println("[2] Adicionado permission USER para: "+user.getUsername());
-	    		}
-	        }   
+		    		if(user.getPermission() != null)
+		        	{	    			
+		    			if(user.getPermission().equals("SARUMAN")){
+		    				return "redirect:/panel/saruman";
+		    			}else if(!user.getPermission().equals("USER")) {
+		    				user.setPermission("USER");	
+		    				System.out.println("[1] Adicionado permission USER para: "+user.getUsername());
+		    			}	    			
+		    		}else{
+		    			user.setPermission("USER");
+		    			System.out.println("[2] Adicionado permission USER para: "+user.getUsername());
+		    		}
+	    		
+	    		model.addAttribute("order", repository.findByAreaAndGrupo(user.getArea(), user.getGrouping()));
+	    		
+	    		model.addAttribute("actions", actionRepository.findBysoldierId(user.getId()));
+	    		  
+	    		return "panel";
+	        }else {
+	        	return "redirect:/";
+	        }
 	    	
-	    	User user = userRepository.findByUsername(auth.getName());	
 	    	
-		 
-		 
-	   model.addAttribute("order", repository.findByAreaAndGrupo(user.getArea(), user.getGrouping()));
-	      return "panel";
 	  }
 	 
 	 

@@ -149,9 +149,9 @@
     Send message     
    </button>
 
-<!--     <button type="button" class="menua col-md-3 col-sm-4 col-xs-6" style="font-size:1.4em;color:#444;font-weight:500;height: 150px;border:none;background-color:#5BC0DE;" onclick="window.location='/new/action';">
+   <button type="button" class="menua col-md-3 col-sm-4 col-xs-6" style="font-size:1.4em;color:#444;font-weight:500;height: 150px;border:none;background-color:#5BC0DE;" onclick="window.location='/new/action';">
     Send Action     
-   </button> -->
+   </button> 
 
    <button type="button" class="active-menu menua col-md-3 col-sm-4 col-xs-6" style="font-size:1.4em;color:#444;font-weight:500;height: 150px;border:none;background-color:#428bca;" onclick="window.location='/orders';">
     Last Messages   

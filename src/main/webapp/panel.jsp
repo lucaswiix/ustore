@@ -13,6 +13,9 @@
       <title>Ustore - who are you?</title>
 
       <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/solid.css" integrity="sha384-r/k8YTFqmlOaqRkZuSiE9trsrDXkh07mRaoGBMoDcmA58OHILZPsk29i2BsFng1B" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/fontawesome.css" integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+" crossorigin="anonymous">
 
       <style>
       a:hover
@@ -107,29 +110,31 @@
       <div id="action">
         <h5>Action orders:</h5>
         <div class="row">
-          <c:choose>
-
-      <c:when test="${fn:length(order) > 0}">
-          <c:forEach items="${order}" var="order">
+          <c:forEach items="${actions}" var="actions">
           <div class="col-md-3 col-sm-4 col-xs-6 p-2" >
             <div class="card">
               <div class="card-body">
-                <h6 class="card-subtitle mb-2 text-muted">Saruman order</h6>
-                <p class="card-text">${order.message}</p>
+                <h6 class="card-subtitle mb-2 text-muted">Saruman action order</h6>
+                <p class="card-text">
+                  Join to group <b>${actions.grupo}</b><br>
+                  in <b>${actions.area}</b>.
+                </p>
               </div>
-              <div class="card-footer text-right" style="padding-top: 0;">
-                <button type="button" style="margin-bottom:10px;" class="btn btn-info btn3d btn-block">Execute!</button>
+              <div class="card-footer text-right" style="padding-top: 10px;">
+                <c:choose>
+                <c:when test="${actions.exec == false}">
+                <a href="/actions/exec/${actions.id}">
+                   <button type="button" style="margin-bottom:10px;" class="btn btn-info btn3d btn-block">Run!</button>
+                </a>
+                </c:when> 
+                <c:otherwise>
+                <button type="button" style="margin-bottom:10px;" class="btn btn-success btn-block" disabled><i class="fas fa-check"></i> Done</button>
+               </c:otherwise>
+             </c:choose>                
               </div>
             </div>
           </div>
           </c:forEach>
-          </c:when>    
-    <c:otherwise>
-        No have orders actions for you.
-    </c:otherwise>
-
-
-        </c:choose>
 
         </div>
       </div>

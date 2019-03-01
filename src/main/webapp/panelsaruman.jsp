@@ -15,6 +15,9 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/solid.css" integrity="sha384-r/k8YTFqmlOaqRkZuSiE9trsrDXkh07mRaoGBMoDcmA58OHILZPsk29i2BsFng1B" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/fontawesome.css" integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+" crossorigin="anonymous">
 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/solid.css" integrity="sha384-r/k8YTFqmlOaqRkZuSiE9trsrDXkh07mRaoGBMoDcmA58OHILZPsk29i2BsFng1B" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/fontawesome.css" integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+" crossorigin="anonymous">
+
       <style>
       a:hover
       {
@@ -149,9 +152,9 @@
     Send message     
    </button>
 
-<!--     <button type="button" class="menua col-md-3 col-sm-4 col-xs-6" style="font-size:1.4em;color:#444;font-weight:500;height: 150px;border:none;background-color:#5BC0DE;" onclick="window.location='/new/action';">
+    <button type="button" class="menua col-md-3 col-sm-4 col-xs-6" style="font-size:1.4em;color:#444;font-weight:500;height: 150px;border:none;background-color:#5BC0DE;" onclick="window.location='/new/action';">
     Send Action     
-   </button> -->
+   </button> 
 
    <button type="button" class="menua col-md-3 col-sm-4 col-xs-6" style="font-size:1.4em;color:#444;font-weight:500;height: 150px;border:none;background-color:#428bca;" onclick="window.location='/orders';">
     Last Messages   
@@ -170,7 +173,7 @@
 				<div class="card">
   					<img src="https://www.tibiawiki.com.br/images/2/21/Orc.gif" class="card-img-top"  alt="Orc">
   					<div class="card-body">
-					<h5 class="card-title" > <c:out value="${user.username}"/> </h5>
+					<h5 class="card-title" > <c:out value="${user.username}"/> <small>(${user.id})</small> </h5>
     				<p class="card-text">
     					<table width="100%">
     						<tr>
