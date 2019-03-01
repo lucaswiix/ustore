@@ -40,7 +40,7 @@ public class ActionController {
     		}
         }
 		
-		model.addAttribute("actions", actionRepository.findAll());
+		model.addAttribute("actions", actionRepository.findAllByOrderByIdDesc());
 		return "show-actions";
 	}
 

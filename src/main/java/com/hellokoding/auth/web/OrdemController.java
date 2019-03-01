@@ -53,7 +53,7 @@ public class OrdemController {
 	    		
 	    		model.addAttribute("order", repository.findByAreaAndGrupo(user.getArea(), user.getGrouping()));
 	    		
-	    		model.addAttribute("actions", actionRepository.findBysoldierId(user.getId()));
+	    		model.addAttribute("actions", actionRepository.findBysoldierIdOrderByIdDesc(user.getId()));
 	    		  
 	    		return "panel";
 	        }else {
