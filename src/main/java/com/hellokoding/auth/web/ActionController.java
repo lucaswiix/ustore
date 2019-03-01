@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hellokoding.auth.model.Action;
 import com.hellokoding.auth.model.User;
@@ -93,7 +94,7 @@ public class ActionController {
 	}
 	
 	@GetMapping("/actions/exec/{id}")
-	public String execActions(@PathVariable("id") long id, Authentication auth) {
+	public String execActions(@PathVariable("id") long id, Authentication auth, RedirectAttributes attributes) {
 		
 		if(auth != null && auth.getName() != null) {
 			User user = userRepository.findByUsername(auth.getName());
@@ -101,19 +102,31 @@ public class ActionController {
 		
 			Action action = actionRepository.findById(id);
 		if(action != null) {		
-			user.setArea(action.getArea());
-			user.setGrouping(action.getGrupo());
-			userRepository.save(user);
-		
-			action.setExec(true);
-			actionRepository.save(action);
-		
-			return "redirect:/panel/";
+			if(action.getSoldierId() == user.getId()){
+				if(action.isExec() == true){
+					attributes.addFlashAttribute("error", "Ops! This action already executed!");
+					return "redirect:/panel";
+				}
+				user.setArea(action.getArea());
+				user.setGrouping(action.getGrupo());
+				userRepository.save(user);
+			
+				action.setExec(true);
+				actionRepository.save(action);
+				attributes.addFlashAttribute("success", "The action order was successfully executed!");
+			
+				return "redirect:/panel/";
+			}else {
+				attributes.addFlashAttribute("error", "Sorry, you can't execute this action.");
+				return "redirect:/panel";
+			}
 		}else {
+			attributes.addFlashAttribute("error", "Sorry, we dont find this action.");
 			return "redirect:/panel";
 		}
 		
 		}else {
+			attributes.addFlashAttribute("error", "Sorry, we dont find your login.");
 			return "redirect:/";
 		}		
 

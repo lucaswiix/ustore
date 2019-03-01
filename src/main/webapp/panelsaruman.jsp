@@ -136,11 +136,17 @@
     display: inline-block;
 
   "></div>
-         Hail my king, ${pageContext.request.userPrincipal.name}.</h2>
+         Hail my king, ${pageContext.request.userPrincipal.name}. </h2>
         <h4 class="col-md-6 col-sm-12 text-right"><a onclick="document.forms['logoutForm'].submit()" style="cursor: pointer;">Leave</a></h4>
         </div>
     </c:if>
   <hr>
+    
+      <div style="max-width: 300px;position: fixed;bottom:20px;right:20px;align-items: center;">
+        <c:if test="${success != null}"><div class="alert alert-success" role="alert"><i class="fas fa-check"></i> ${success}</div></c:if>
+        <c:if test="${error != null}"><div class="alert alert-danger" role="alert"><i class="fas fa-exclamation"></i> ${error}</div></c:if>
+      </div>
+
   <h5 style="margin-bottom: -20px;">Menu:</h5>
 	<div class="menu row" style="width: 100%;height: 150px;border-top:solid 1px #ccc;border-bottom: solid 2px #ccc;margin:20px 0px 20px 0px;">
 

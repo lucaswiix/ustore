@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hellokoding.auth.model.Ordem;
 import com.hellokoding.auth.model.User;
@@ -58,29 +59,7 @@ public class OrdemController {
 	        }else {
 	        	return "redirect:/";
 	        }
-	    	
-	    	
 	  }
-	 
-	 
-	 @GetMapping("/new/order")
-	    public String showOrderForm(Ordem ordem, Authentication auth) {
-	    	
-	    	
-	    	if(auth != null && auth.getName() != null) 
-	    	{    		
-	    		User user = userRepository.findByUsername(auth.getName());  
-	    		
-	    		if(user.getPermission() != null)
-	        	{
-	    			if(!user.getPermission().equals("SARUMAN")){
-	    				return "redirect:/panel/";
-	    			}	    			
-	    		}
-	        }
-		 
-	        return "add-order";
-	    }
 	 
 	 	@GetMapping("/orders")
 	    public String showOrders(Model model, Ordem ordem, Authentication auth) {
@@ -103,29 +82,55 @@ public class OrdemController {
 	    }
 	 
 	 
+	 @GetMapping("/new/order")
+	    public String showOrderForm(Ordem ordem, Authentication auth) {
+	    	
+	    	
+	    	if(auth != null && auth.getName() != null) 
+	    	{    		
+	    		User user = userRepository.findByUsername(auth.getName());  
+	    		
+	    		if(user.getPermission() != null)
+	        	{
+	    			if(!user.getPermission().equals("SARUMAN")){
+	    				return "redirect:/panel/";
+	    			}	    			
+	    		}
+	        }
+		 
+	        return "add-order";
+	    }
 	 
-	@PostMapping("/new/order")
-	public ModelAndView addOrder(Ordem ordem, ModelAndView modelAndView, Authentication auth) {
-    	
-    	
-    	if(auth != null && auth.getName() != null) 
-    	{    		
-    		User user = userRepository.findByUsername(auth.getName());  
-    		
-    		if(user.getPermission() != null)
-        	{
-    			if(!user.getPermission().equals("SARUMAN")){
-    				return new ModelAndView("redirect:/panel/");
-    			}	    			
-    		}
-        }
-    	
-		repository.save(ordem);		
-		modelAndView.addObject("success","Order sent successfully!");
-		modelAndView.setViewName("redirect:/panel/saruman");	
+		@PostMapping("/new/order")
+		public ModelAndView addOrder(Ordem ordem, ModelAndView modelAndView, Authentication auth, RedirectAttributes attributes) {
+	    	
+	    	
+	    	if(auth != null && auth.getName() != null) 
+	    	{    		
+	    		User user = userRepository.findByUsername(auth.getName());  
+	    		
+	    		if(user.getPermission() != null)
+	        	{
+	    			if(!user.getPermission().equals("SARUMAN")){
+	    				return new ModelAndView("redirect:/panel/");
+	    			}	    			
+	    		}
+	        }
+	    	
+			repository.save(ordem);		
+			
+			
+			modelAndView.addObject("success","Message order sent successfully!");
+			modelAndView.setViewName("redirect:/panel/saruman");
+			attributes.addFlashAttribute("success", "Message order sent successfully!");
+			
+			return modelAndView;
+		}
 		
-		return modelAndView;
-	}
+
+	 
+	 
+	
 	
 	
 }

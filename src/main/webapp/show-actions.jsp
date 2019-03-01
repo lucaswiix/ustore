@@ -114,7 +114,10 @@
     </span>
   </div>
 </nav>
-
+<div style="max-width: 300px;position: fixed;bottom:20px;right:20px;align-items: center;">
+        <c:if test="${success != null}"><div class="alert alert-success" role="alert"><i class="fas fa-check"></i> ${success}</div></c:if>
+        <c:if test="${error != null}"><div class="alert alert-danger" role="alert"><i class="fas fa-exclamation"></i> ${error}</div></c:if>
+      </div>
 
   <div class="container" style="margin-top:3em;">
 
