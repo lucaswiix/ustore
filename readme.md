@@ -9,17 +9,20 @@
 - [x] Login Orc
 - [x] Validation login Orc
 - [x] Saruman created
-- [x] Show orcs in /panel/saruman
+- [x] Saruman can see all soldiers
 - [x] Send Order to orcs by region and group
 - [x] Can change Region and Group of single orc
 - [x] Can delete Orcs
-- [x] Orcs can see last 20 orders
-- [ ] Orc can accept or decline order
-- [X] Difference authenticator to saruman(now)
-- [ ] Log out if go to /login if authenticate
-- [ ] Make real the front end ( now like a shit)
+- [x] Orcs can see orders of your group and area
+- [ ] Orc can execute action orders
+- [X] Saruman can see lasts messages orders
+- [X] Soldier can't see Saruman panel
+- [X] Saruman has a unique permission to differentiate himself from the soldiers(permission->"SARUMAN")
+- [X] Log out if go to /login if authenticate
+- [X] Make a prettier and more practical front end
+- [ ] TIMEOUT: Upgrade front-end to Angular
 - [ ] TIMEOUT: Study more about Syntax .JSP
-- [ ] TIMEOUT: Upload frontend to Angular
+
 
 # Scrum deploy
 
