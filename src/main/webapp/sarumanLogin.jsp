@@ -94,74 +94,28 @@
     
         <div class="col">
 
-        <div class="col-sm-6" style="background-color: rgba(255,255,255,0.2);display:inline-block;border-radius:4px;padding:30px;max-width: 350px;position: relative;">
+        <div class="col-md-6 col-sm-12" style="background-color: rgba(255,255,255,0.2);display:inline-block;border-radius:4px;padding:30px;max-width: 350px;position: relative;border:solid 2px #BB7700;">
         <div class="mapping" style="color:#fff;font-weight:500;position: absolute;top:-24px;left:5px;">
           <span>
             <a href="/"><i class="fas fa-home"></i> Home</a>
-             <i class="fas fa-caret-right" style="font-size:0.8em;"></i> 
-             <a href="/login">Orc Login</a> 
-             <i class="fas fa-caret-right" style="font-size:0.8em;"></i> 
-                 Orc Register
+             <i class="fas fa-caret-right" style="font-size:0.8em;"></i> Saruman Login</span>
+           </div>
+<div class="col-md-10 col-sm-12" style="display:inline-block;">
 
-           </span>
-         </div>
+        <form method="POST" action="${contextPath}/login" class="form-signin">
+        <h2 class="form-heading text-white">Hail my King!</h2>
 
-      <div style="display:inline-block;">
-        <form:form method="POST" modelAttribute="userForm" class="form-signin">
-            <h2 class="text-white">KRAK ORRRRRRK!</h2>
+        <div class="form-group ${error != null ? 'has-error' : ''}">
+            <span class="text-white">${message}</span>
+            <input name="username" type="text" class="form-control mb-1" placeholder="Username"
+                   autofocus="true"/>
+            <input name="password" type="password" class="form-control mb-1" placeholder="Password"/>
+            <span class="text-white">${error}</span>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
-            <spring:bind path="username">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:input type="text" path="username" class="form-control" placeholder="Username"
-                                autofocus="true"></form:input>
-                    <form:errors path="username" class="text-white"></form:errors>
-                </div>
-            </spring:bind>
-
-            <spring:bind path="grouping">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:select path="grouping" class="form-control">
-                               <option value="" selected disabled>Your Group</option>
-
-                               <option value="goblins">Goblins</option>
-                               <option value="uruk-hais">Uruk-hais</option>
-                               <option value="snagas">Snagas</option>
-                                 
-                               </form:select>
-                    <form:errors path="grouping" class="text-white"></form:errors>
-                </div>
-            </spring:bind>
-
-            <spring:bind path="area">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:select path="area" class="form-control" >
-                               <option value="" selected disabled>Your Region</option>
-                               <option value="Isengard">Isengard</option>
-                               <option value="Orthanc">Orthanc</option>
-                               <option value="Rohan">Rohan</option>                                 
-                               </form:select>
-                    <form:errors path="area" class="text-white"></form:errors>
-                </div>
-            </spring:bind>
-
-            <spring:bind path="password">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:input type="password" path="password" class="form-control" placeholder="Password"></form:input>
-                    <form:errors path="password" class="text-white"></form:errors>
-                </div>
-            </spring:bind>
-
-            <spring:bind path="passwordConfirm">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:input type="password" path="passwordConfirm" class="form-control"
-                                placeholder="Confirm your password"></form:input>
-                    <form:errors path="passwordConfirm" class="text-white"></form:errors>
-                </div>
-            </spring:bind>
-
-            <button class="btn btn-lg btn-warning btn-block" type="submit">Create</button>
-        </form:form>
-
+            <button class="btn btn-lg btn-danger btn-block" type="submit" style="margin-bottom:10px;">Log In</button>            
+        </div>
+      </form>
       </div>
 
 

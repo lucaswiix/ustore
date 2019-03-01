@@ -21,6 +21,9 @@
         text-transform: none;
         text-decoration: none;
       }
+      .active-menu {
+        border:solid 2px #c63702 !important ;
+      }
       html, body {
     margin: 0;
     height: 100%;
@@ -88,9 +91,6 @@
   border:none;
   border:1px solid #FF6000;
 }
- .active-menu {
-        border:solid 2px #c63702 !important ;
-      }
       </style>
   </head>
   <body style="background-color:#eee;padding-top: 0;">
@@ -116,7 +116,7 @@
 </nav>
 
 
-	<div class="container" style="margin-top:3em;">
+  <div class="container" style="margin-top:3em;">
 
     <c:if test="${pageContext.request.userPrincipal.name != null}">
         <form id="logoutForm" method="POST" action="${contextPath}/logout">
@@ -139,9 +139,9 @@
     </c:if>
   <hr>
   <h5 style="margin-bottom: -20px;">Menu:</h5>
-	<div class="menu row" style="width: 100%;height: 150px;border-top:solid 1px #ccc;border-bottom: solid 2px #ccc;margin:20px 0px 20px 0px;">
+  <div class="menu row" style="width: 100%;height: 150px;border-top:solid 1px #ccc;border-bottom: solid 2px #ccc;margin:20px 0px 20px 0px;">
 
-   <button type="button" class="active-menu menua col-md-3 col-sm-4 col-xs-6" style="font-size:1.4em;color:#444;font-weight:500;height: 150px;border:none;background-color:#5cb85c;" onclick="window.location='/panel/saruman';">
+   <button type="button" class="menua col-md-3 col-sm-4 col-xs-6" style="font-size:1.4em;color:#444;font-weight:500;height: 150px;border:none;background-color:#5cb85c;" onclick="window.location='/panel/saruman';">
     Show Soldiers   
    </button>
 
@@ -153,54 +153,36 @@
     Send Action     
    </button> -->
 
-   <button type="button" class="menua col-md-3 col-sm-4 col-xs-6" style="font-size:1.4em;color:#444;font-weight:500;height: 150px;border:none;background-color:#428bca;" onclick="window.location='/orders';">
+   <button type="button" class="active-menu menua col-md-3 col-sm-4 col-xs-6" style="font-size:1.4em;color:#444;font-weight:500;height: 150px;border:none;background-color:#428bca;" onclick="window.location='/orders';">
     Last Messages   
    </button>
-	</div>
+  </div>
 
 <hr>
   
   <div class="content-wrap">
-	<div style="height: 50px;background-color:#ccc;"><center><h1>Soldiers</h1></center></div>
+  <div style="height: 50px;background-color:#ccc;"><center><h1>Orders messages</h1></center></div>
 
-		<div class="row">
+    <div class="row">
 
-      <c:forEach items="${user}" var="user">
-			<div class="col-xl-3 col-md-4 col-sm-6 col-xs-12" style="padding:10px;">
-				<div class="card">
-  					<img src="https://www.tibiawiki.com.br/images/2/21/Orc.gif" class="card-img-top"  alt="Orc">
-  					<div class="card-body">
-					<h5 class="card-title" > <c:out value="${user.username}"/> </h5>
-    				<p class="card-text">
-    					<table width="100%">
-    						<tr>
-    							<td class="font-weight-bold">Group:</td><td><c:out value="${user.grouping}"/></td></tr>
-                  <tr>
-    							<td class="font-weight-bold">Area:</td><td><c:out value="${user.area}"/></td>
-                </tr>
-    					</table>
-    				</p>
-          </div>
-          <div class="card-footer">
-            <div class="row">
-              <div class="col-md-6">
-   					 <a href="/edit/${user.id}" class="btn btn-default">Change</a>
-             </div>
-             <div class="col-md-6 text-right">
-   					 <a href="/delete/${user.id}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this soldier?');">Delete</a>
-             </div>
-             </div>
-  					</div>
+     <c:forEach items="${order}" var="order">
+          <div class="col-md-3 col-sm-4 col-xs-6 p-2" >
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">Saruman says:</h6>
+                <p class="card-text">${order.message}</p>
+              </div>
+              <div class="card-footer text-right">${order.created_at}</div>
             </div>
-				</div>
+          </div>
       </c:forEach>
 
-		</div>
-	
-	</div>
+    </div>
+  
   </div>
-	
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </div>
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 </html>

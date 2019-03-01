@@ -40,7 +40,7 @@ public class User {
     @NotNull
     @NotEmpty
     @Value("USER")
-    private String permission;
+    private String permission = "USER";
 
     @Transient
     private String passwordConfirm;

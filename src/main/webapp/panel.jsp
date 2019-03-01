@@ -1,6 +1,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -105,6 +107,9 @@
       <div id="action">
         <h5>Action orders:</h5>
         <div class="row">
+          <c:choose>
+
+      <c:when test="${fn:length(order) > 0}">
           <c:forEach items="${order}" var="order">
           <div class="col-md-3 col-sm-4 col-xs-6 p-2" >
             <div class="card">
@@ -118,6 +123,13 @@
             </div>
           </div>
           </c:forEach>
+          </c:when>    
+    <c:otherwise>
+        No have orders actions for you.
+    </c:otherwise>
+
+
+        </c:choose>
 
         </div>
       </div>
@@ -128,6 +140,10 @@
       <div id="messages">
         <h5>Messages orders:</h5>
         <div class="row" >
+      
+      <c:choose>
+
+      <c:when test="${fn:length(order) > 0}">
           <c:forEach items="${order}" var="order">
           <div class="col-md-3 col-sm-4 col-xs-6 p-2" >
             <div class="card">
@@ -139,6 +155,15 @@
             </div>
           </div>
           </c:forEach>
+          </c:when>    
+    <c:otherwise>
+        No have orders messages for you.
+    </c:otherwise>
+
+
+        </c:choose>
+
+
         </div>
       </div>
 

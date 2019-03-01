@@ -15,7 +15,7 @@
 - [x] Can delete Orcs
 - [x] Orcs can see last 20 orders
 - [ ] Orc can accept or decline order
-- [ ] Difference authenticator to saruman
+- [X] Difference authenticator to saruman(now)
 - [ ] Log out if go to /login if authenticate
 - [ ] Make real the front end ( now like a shit)
 - [ ] TIMEOUT: Study more about Syntax .JSP

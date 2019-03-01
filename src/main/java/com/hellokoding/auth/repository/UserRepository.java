@@ -9,7 +9,12 @@ import com.hellokoding.auth.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
+	
     User findByUsername(String username);
+    
+    User findById(long id);
+    
+    List<User> findByPermission(String permission);
     
     List<User> findAll();
     

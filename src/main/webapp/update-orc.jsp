@@ -16,7 +16,7 @@
 </head>
   <body style="background-color:#eee;padding-top: 0;">
     
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/">uStore</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -44,6 +44,10 @@
           action="/update/${user.id}" modelAttribute="user">
 
 			<h2>Send Order to Orc!</h2>
+      <div style="max-width: 300px;">
+      <c:if test="${success != null}"><div class="alert alert-success" role="alert">${success}</div></c:if>
+      <c:if test="${error != null}"><div class="alert alert-danger" role="alert">${error}</div></c:if>
+      </div>
 
 <div class="card">
   <img src="https://www.tibiawiki.com.br/images/3/39/Orc_Cult_Fanatic.gif" width="60px" class="card-img-top" alt="Orc">
@@ -52,29 +56,31 @@
     <p class="card-text">
 
 <spring:bind path="grouping">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:select path="grouping" class="custom-select"
-                               >
-                               <option value="${user.username}" selected disabled>${user.grouping}</option>
-
+                <div class="input-group mb-3 ${status.error ? 'has-error' : ''}">
+                  <div class="input-group-prepend" style="width:30%;min-width: 75px;">
+                    <label class="input-group-text" for="grouping" style="width: 100%;" >Group:</label>
+                  </div>
+                    <form:select id="grouping" path="grouping" class="custom-select">
+                               <option value="${user.grouping}" selected>${user.grouping}</option>
                                <option value="goblins">Goblins</option>
                                <option value="uruk-hais">Uruk-hais</option>
                                <option value="snagas">Snagas</option>
-                                 
                                </form:select>
                     <form:errors path="grouping"></form:errors>
                 </div>
             </spring:bind>
 
 <spring:bind path="area">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:select path="area" class="form-control"
-                               >
-                               <option value="${user.username}" selected disabled>${user.area}</option>
+               <div class="input-group mb-3 ${status.error ? 'has-error' : ''}">
+                  <div class="input-group-prepend" style="width:30%;min-width: 75px;">
+                    <label class="input-group-text" style="width: 100%;" for="area">Area:</label>
+                  </div>
+                            <form:select path="area" id="area" class="form-control">
+                               <option value="${user.area}" selected>${user.area}</option>
                                <option value="Isengard">Isengard</option>
                                <option value="Orthanc">Orthanc</option>
                                <option value="Rohan">Rohan</option>                                 
-                               </form:select>
+                            </form:select>
                     <form:errors path="area"></form:errors>
                 </div>
             </spring:bind>
