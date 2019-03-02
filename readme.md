@@ -1,5 +1,5 @@
 # ESTA VERSÃO FOI REALIZADA APÓS O TEMPO REQUISITADO
- - NEW: Saruman e os soldados são criado ao iniciar.
+ - NEW: Saruman e os soldados são criados ao iniciar a aplicação para teste.
 
 ----
 
