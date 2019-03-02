@@ -1,9 +1,14 @@
+# ESTA VERSÃO FOI REALIZADA APÓS O TEMPO REQUISITADO
+ - NEW: Saruman e os soldados são criado ao iniciar.
+
+----
+
 ## Ustore Challenge
 
 - Inicio : 26/02/19 18:25
 - Fim : 01/03/19 00
 
-# Version 1.0
+# Version TIMEOUT
 - [x] Register Orc
 - [x] Validation Orc
 - [x] Login Orc
