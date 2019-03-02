@@ -2,6 +2,7 @@ package com.hellokoding.auth.model;
 
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -23,20 +25,19 @@ public class User {
 
     @NotNull
     @NotEmpty
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
     
     @NotNull
     @NotEmpty
-    private String grouping;
-    
-    @NotNull
-    @NotEmpty
-    private String area;
-
-    @NotNull
-    @NotEmpty
     private String password;
+    
+    @Column(name = "grouping", nullable = true)
+    private String grouping;
 
+    @Column(name = "area", nullable = true)
+    private String area;
+    
     @NotNull
     @NotEmpty
     @Value("USER")
@@ -48,7 +49,7 @@ public class User {
     @ManyToMany
     private Set<Role> roles;
 
-    public Long getId() {
+	public Long getId() {
         return id;
     }
 
